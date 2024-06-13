@@ -4,7 +4,7 @@
 #3.
 #4.饿了么残库，仅供学习参考，请勿用于商业用途
 #!/bin/sh
-
+export elmck=$1
 # 调用乐园币脚本
 node ./ele_lyb.js
 
