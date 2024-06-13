@@ -1,9 +1,10 @@
+#!/bin/sh
 #说明（follow）：
 #1.缺3个依赖：moment md5 request
 #2.环境变量：elmck
 #3.
 #4.饿了么残库，仅供学习参考，请勿用于商业用途
-#!/bin/sh
+
 export elmck=$1
 # 调用乐园币脚本
 node ./ele_lyb.js
