@@ -2,48 +2,24 @@ import streamlit as st
 import subprocess
 import os
 
-# 添加执行权限
-def add_execute_permission(script_path):
-    try:
-        os.chmod(script_path, 0o755)  # 添加执行权限
-        st.write("已成功添加执行权限")
-    except Exception as e:
-        st.write(f"添加执行权限时出现错误：{e}")
+def run_js_file(js_file_path, env_var):
+    # 设置环境变量
+    os.environ["elmck"] = env_var
+    # 执行 JavaScript 文件
+    subprocess.run(["node", js_file_path], check=True)
 
-# 定义执行Shell脚本的函数
-def run_shell_script(elmck):
-    try:
-        script_path = os.path.join(os.path.dirname(__file__), "elm.sh")
-        add_execute_permission(script_path)  # 添加执行权限
-        
-        # 调试信息
-        st.write(f"当前工作目录: {os.getcwd()}")
-        st.write(f"__file__: {__file__}")
-        st.write(f"脚本路径: {script_path}")
-        st.write(f"文件存在: {os.path.isfile(script_path)}")
-        st.write(f"文件可执行: {os.access(script_path, os.X_OK)}")
+def main():
+    st.title("执行 ele_elge.js 文件")
 
-        # 执行Shell脚本
-        result = subprocess.run([script_path, elmck], capture_output=True, text=True)
-        return result.stdout, result.stderr
-    except Exception as e:
-        return str(e), ""
+    # 在界面中添加输入框，以便用户输入 elmck 的值
+    env_var = st.text_input("请输入 elmck 的值")
 
-# Streamlit界面
-st.title("饿了么自动化脚本")
+    if st.button("执行"):
+        if env_var:
+            # 当用户点击执行按钮时，调用函数执行 JavaScript 文件
+            run_js_file("ele_elge.js", env_var)
+        else:
+            st.warning("请先输入 elmck 的值")
 
-# 用户输入elmck
-elmck = st.text_input("请输入elmck值:")
-
-if st.button("执行脚本"):
-    if elmck:
-        st.write("脚本正在执行，请稍候...")
-        stdout, stderr = run_shell_script(elmck)
-        st.write("脚本输出:")
-        st.text(stdout)
-        if stderr:
-            st.write("脚本错误:")
-            st.text(stderr)
-    else:
-        st.write("请输入elmck值")
-
+if __name__ == "__main__":
+    main()
