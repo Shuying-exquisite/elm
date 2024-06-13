@@ -4,7 +4,7 @@ import subprocess
 # 定义执行Shell脚本的函数
 def run_shell_script(elmck):
     # 执行Shell脚本
-    result = subprocess.run(["./elm.sh", elmck], capture_output=True, text=True)
+    result = subprocess.run(["elm.sh", elmck], capture_output=True, text=True)
     return result.stdout, result.stderr
 
 # Streamlit界面
