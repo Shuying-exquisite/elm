@@ -1,11 +1,23 @@
 import streamlit as st
 import subprocess
+import os
 
 # 定义执行Shell脚本的函数
 def run_shell_script(elmck):
-    # 执行Shell脚本
-    result = subprocess.run(["elm.sh", elmck], capture_output=True, text=True)
-    return result.stdout, result.stderr
+    try:
+        script_path = os.path.join(os.path.dirname(__file__), "elm.sh")
+        
+        # 调试信息
+        st.write(f"当前工作目录: {os.getcwd()}")
+        st.write(f"脚本路径: {script_path}")
+        st.write(f"文件存在: {os.path.isfile(script_path)}")
+        st.write(f"文件可执行: {os.access(script_path, os.X_OK)}")
+
+        # 执行Shell脚本
+        result = subprocess.run([script_path, elmck], capture_output=True, text=True)
+        return result.stdout, result.stderr
+    except Exception as e:
+        return str(e), ""
 
 # Streamlit界面
 st.title("饿了么自动化脚本")
