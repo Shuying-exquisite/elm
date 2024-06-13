@@ -1,0 +1,19 @@
+{
+  "name": "elm-scripts",
+  "version": "1.0.0",
+  "description": "饿了么自动化脚本",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "moment": "^2.29.1",
+    "md5": "^2.3.0",
+    "request": "^2.88.2",
+    "xmldom": "^0.7.6",
+    "axios": "^1.2.0",
+    "node-rsa": "^1.1.1",
+    "jsencrypt": "^3.0.0",
+    "crypto-js": "^4.0.0"
+  }
+}
