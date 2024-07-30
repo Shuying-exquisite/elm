@@ -1,19 +1,23 @@
 {
-  "name": "elm-scripts",
+  "name": "elm",
   "version": "1.0.0",
-  "description": "饿了么自动化脚本",
-  "main": "index.js",
+  "description": "elm乐园币获取程序",
+  "main": "elm.sh",
   "scripts": {
-    "start": "node index.js"
+    "start": "sh elm.sh",
   },
+  "author": "Shuying-exquisite",
+  "license": "MIT",
   "dependencies": {
-    "moment": "^2.29.1",
-    "md5": "^2.3.0",
+    "cheerio": "^1.0.0",
     "request": "^2.88.2",
-    "xmldom": "^0.7.6",
-    "axios": "^1.2.0",
+    "xmldom": "^0.6.0",
+    "axios": "^1.7.2",
     "node-rsa": "^1.1.1",
-    "jsencrypt": "^3.0.0",
-    "crypto-js": "^4.0.0"
+    "jsencrypt": "^3.3.2",
+    "crypto-js": "^4.2.0",
+    "moment": "^2.30.1",
+    "md5": "^2.3.0",
+    "utils": "^0.3.1"
   }
 }
