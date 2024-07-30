@@ -4,11 +4,12 @@
   "description": "elm乐园币获取程序",
   "main": "elm.sh",
   "scripts": {
-    "start": "sh elm.sh",
+    "start": "sh elm.sh"
   },
   "author": "Shuying-exquisite",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "cheerio": "^1.0.0",
     "request": "^2.88.2",
     "xmldom": "^0.6.0",
