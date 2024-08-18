@@ -1,5 +1,9 @@
 #!/bin/sh
 # 饿了么中央控制脚本
+
+sh set_elmenv.sh #获取elmck
+
+
 #node ./脚本名称.js
 #python ./脚本名称.py
 
