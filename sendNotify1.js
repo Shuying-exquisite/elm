@@ -94,7 +94,7 @@ let PUSH_PLUS_USER = '';
 // =======================================wxpush设置区域=======================================
 //官方文档：https://wxpusher.zjiecode.com/
 //WX_PUSH_TOKEN：微信扫码登录后一对一推送
-let WX_PUSH_TOKEN = 'AT_l2zR8LFfpdPUtaKNrVI3yBjRWyF9MaXa';
+let WX_PUSH_TOKEN = process.env.wxpusherToken
 
 
 //==========================云端环境变量的判断与接收=========================
@@ -211,7 +211,7 @@ async function sendNotify(
     text,
     desp,
     params = {},
-    author = '\n\n关注飞机频道：https://t.me/tigerorrose，及时获取脚本更新信息',
+    author = '\n\n',
 ) {
     //提供6种通知
     if (process.env.pushDesc){
